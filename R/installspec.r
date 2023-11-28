@@ -33,13 +33,13 @@ installspec <- function(
     dir.create(tmp_name)
     file.copy(srcdir, tmp_name, recursive = TRUE)
     spec_path <- file.path(tmp_name, 'kernelspec', 'kernel.json')
-    spec <- fromJSON(spec_path)
+    spec <- IRkernel::fromJSON(spec_path)
     spec$argv[[1]] <- file.path(R.home('bin'), 'R')
     spec$display_name <- displayname
     if (!is.null(rprofile)) {
         spec$env <- list(R_PROFILE_USER = rprofile)
     }
-    write(toJSON(spec, pretty = TRUE, auto_unbox = TRUE), file = spec_path)
+    write(IRkernel::toJSON(spec, pretty = TRUE, auto_unbox = TRUE), file = spec_path)
     
     user_flag <- if (user) '--user' else character(0)
     prefix_flag <- if (!is.null(prefix)) c('--prefix', prefix) else character(0) 
