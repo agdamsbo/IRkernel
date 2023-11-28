@@ -11,6 +11,7 @@
 #' @param prefix       (optional) Path to alternate directory to install kernelspec into (default: NULL)
 #' @param sys_prefix   (optional) Install kernelspec using the \code{--sys-prefix} option of the currently detected jupyter (default: NULL)
 #' @param verbose      (optional) If \code{FALSE}, silence output of \code{install}
+#' @param jupyter_path (optional) Specify the path to jupyter. Default is 'jupyter'. Allows for other install paths.
 #' 
 #' @return Exit code of the \code{jupyter kernelspec install} call.
 #' 
